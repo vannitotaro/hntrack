@@ -1,0 +1,23 @@
+#!/bin/sh
+# Copyright 2011 Giovanni Totaro (www.ingtotaro.it)
+# License: BSD 2-Clause (http://www.opensource.org/licenses/bsd-license.php)
+# hntrack v1.2
+# Simple hack to track a submission on front and 2nd page of Hacker News
+
+[ $# -ne 1 ] && echo "Usage: $0 'pattern_to_track'" && exit 1
+
+DEST="$HOME/hntrack_$1.txt"
+
+echo "Appending to file '$DEST': [Hit Ctrl-C to stop]"
+
+(
+while true; do
+    echo -n "[$(date)]: "
+    curl -s 'http://news.ycombinator.com/news' \
+            'http://news.ycombinator.com/news2' |
+    sed -r 's/(<tr style="height:5px"><\/tr>)/\n/g; s/discuss/0 comments/g' |
+    (grep "$1" || echo) |
+    sed -r 's/.*valign=top class="title">([0-9]+)\..*>([0-9]+ points?).*>([0-9]+ comments?).*/#\1 with \2 and \3/'
+    sleep 1m
+done
+) | tee -a "$DEST"
