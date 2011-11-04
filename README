@@ -1,0 +1,21 @@
+hntrack by Giovanni Totaro (www.ingtotaro.it)
+
+Example:
+
+./hntrack asaclock
+
+will track a submission containing 'asaclock' in title, domain or submitter.
+
+Remember to choose a pattern that univocally matches your submission.
+
+Output:
+
+...
+[Fri Oct 28 19:07:29 CEST 2011]: #25 with 3 points and 1 comment
+[Fri Oct 28 19:10:32 CEST 2011]: #16 with 5 points and 2 comments
+[Fri Oct 28 19:13:34 CEST 2011]: #39 with 9 points and 2 comments
+[Fri Oct 28 19:16:35 CEST 2011]: #42 with 9 points and 3 comments
+[Fri Oct 28 19:19:37 CEST 2011]: #33 with 11 points and 5 comments
+[Fri Oct 28 19:22:42 CEST 2011]: #35 with 11 points and 5 comments
+[Fri Oct 28 19:25:44 CEST 2011]: #36 with 11 points and 6 comments
+...
